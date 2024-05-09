@@ -1,0 +1,47 @@
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  .inputContainer {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .input {
+      flex: 1;
+      padding: 0.6rem;
+      width: 100%;
+      border: 1px solid gray;
+      font-size: 1rem;
+      outline: none;
+      border-radius: 0.2rem;
+    }
+    .addButton {
+      width: 5rem;
+      padding: 0.6rem;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 0.2rem;
+      height: 100%;
+    }
+  }
+  .userDetails {
+    padding: 1rem;
+    .editButton {
+      width: 5rem;
+      padding: 0.6rem;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 0.2rem;
+      height: 100%;
+    }
+    .userDetailsContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}

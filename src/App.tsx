@@ -1,24 +1,70 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.scss";
+import { Resizable } from "re-resizable";
+import Component1 from "./component/Component1/Component1";
 
-function App() {
+function App(): JSX.Element {
+  const getData = async () => {
+    try {
+      const resoponse = await fetch("http://localhost:4000/api/count");
+      const data = resoponse.json();
+      console.log(data);
+    } catch (e) {}
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="app-container">
+      <div style={{ display: "flex", flexDirection: "row", gap: "1em" }}>
+        <Resizable
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "solid 1px #ddd",
+            background: "#f0f0f0",
+          }}
+          defaultSize={{
+            width: "50%",
+            height: 300,
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <Component1 id={1} />
+        </Resizable>
+
+        <Resizable
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "solid 1px #ddd",
+            background: "#f0f0f0",
+          }}
+          defaultSize={{
+            width: "50%",
+            height: 300,
+          }}
+        >
+          <Component1 id={2} />
+        </Resizable>
+      </div>
+      <Resizable
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          border: "solid 1px #ddd",
+          background: "#f0f0f0",
+        }}
+        defaultSize={{
+          width: "100%",
+          height: 300,
+        }}
+      >
+        <Component1 id={3} />
+      </Resizable>
     </div>
   );
 }
